@@ -1,4 +1,5 @@
 # RecoverED
+<img src="RecoverEDScreenshot1.png" alt="App screenshot" width="500"> <img src="RecoverEDScreenshot2.png" alt="App screenshot" width="500">
 
 ## Eating Disorder Management Application
 ***RecoverED*** is an application with tools to aid in the process of managing an eating disorder. 
