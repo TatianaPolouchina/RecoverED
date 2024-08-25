@@ -1,0 +1,112 @@
+{"checkInLog": {"checkInEntries": [
+    {
+        "goal2": {
+            "checked": true,
+            "description": "Practice positive self-talk"
+        },
+        "thoughts": "Thoughts",
+        "goal1": {
+            "checked": true,
+            "description": "Avoid social media"
+        },
+        "weight": 105,
+        "checklist": {"checklist": [
+            {
+                "checked": true,
+                "description": "Maintaining a normalized eating pattern"
+            },
+            {
+                "checked": true,
+                "description": "Eating a variety of foods (i.e. not excluding types of foods)"
+            },
+            {
+                "checked": true,
+                "description": "Interrupting overexercising"
+            },
+            {
+                "checked": true,
+                "description": "Interrupting binge eating"
+            },
+            {
+                "checked": true,
+                "description": "Interrupting purging"
+            },
+            {
+                "checked": true,
+                "description": "No body checking"
+            },
+            {
+                "checked": true,
+                "description": "No weighing self outside of planned times"
+            },
+            {
+                "checked": true,
+                "description": "Maintaining weight"
+            },
+            {
+                "checked": true,
+                "description": "Not avoiding shape through loose clothing"
+            },
+            {
+                "checked": true,
+                "description": "Not attributing uncomfortable emotions to body type"
+            }
+        ]},
+        "weightEstimate": 100
+    },
+    {
+        "goal2": {
+            "checked": false,
+            "description": "Do that"
+        },
+        "thoughts": "Many thoughts",
+        "goal1": {
+            "checked": true,
+            "description": "Do this"
+        },
+        "weight": 185,
+        "checklist": {"checklist": [
+            {
+                "checked": false,
+                "description": "Maintaining a normalized eating pattern"
+            },
+            {
+                "checked": false,
+                "description": "Eating a variety of foods (i.e. not excluding types of foods)"
+            },
+            {
+                "checked": false,
+                "description": "Interrupting overexercising"
+            },
+            {
+                "checked": false,
+                "description": "Interrupting binge eating"
+            },
+            {
+                "checked": false,
+                "description": "Interrupting purging"
+            },
+            {
+                "checked": true,
+                "description": "No body checking"
+            },
+            {
+                "checked": true,
+                "description": "No weighing self outside of planned times"
+            },
+            {
+                "checked": true,
+                "description": "Maintaining weight"
+            },
+            {
+                "checked": true,
+                "description": "Not avoiding shape through loose clothing"
+            },
+            {
+                "checked": true,
+                "description": "Not attributing uncomfortable emotions to body type"
+            }
+        ]},
+        "weightEstimate": 200
+    }
+]}}

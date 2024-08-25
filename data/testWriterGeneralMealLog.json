@@ -1,0 +1,20 @@
+{"mealLog": {"mealEntries": [
+    {
+        "worry": "Worried about xyz",
+        "foods": "Banana",
+        "worryResponse": "I should remember xyz",
+        "mealType": "Morning Snack",
+        "location": "Home",
+        "otherThoughts": "Thinking about xyz",
+        "stressLevel": "Low"
+    },
+    {
+        "worry": "",
+        "foods": "Cookies",
+        "worryResponse": "",
+        "mealType": "Afternoon Snack",
+        "location": "School",
+        "otherThoughts": "",
+        "stressLevel": "High"
+    }
+]}}

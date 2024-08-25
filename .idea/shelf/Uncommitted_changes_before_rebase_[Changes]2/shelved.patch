@@ -1,0 +1,224 @@
+Index: src/test/model/CheckListTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport java.util.ArrayList;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\n// Tests the methods in the CheckList Class\npublic class CheckListTests {\n\n    private CheckList checkList;\n    private ArrayList<CheckInTask> taskList;\n    private CheckInTask normalizedEatingPattern;\n\n    @BeforeEach\n    public void setup() {\n        checkList = new CheckList();\n        taskList = new ArrayList<CheckInTask>();\n        normalizedEatingPattern = new CheckInTask();\n        normalizedEatingPattern.setDescription(\"Maintaining a normalized eating pattern\");\n        taskList.add(normalizedEatingPattern);\n        checkList.setTaskList(taskList);\n    }\n\n    @Test\n    public void testGetTaskList() {\n        assertEquals(taskList, checkList.getTaskList());\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/CheckListTests.java b/src/test/model/CheckListTests.java
+--- a/src/test/model/CheckListTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/CheckListTests.java	(date 1708054757817)
+@@ -1,31 +1,5 @@
+ package model;
+ 
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-
+-import java.util.ArrayList;
+-
+-import static org.junit.jupiter.api.Assertions.assertEquals;
+-
+ // Tests the methods in the CheckList Class
+ public class CheckListTests {
+-
+-    private CheckList checkList;
+-    private ArrayList<CheckInTask> taskList;
+-    private CheckInTask normalizedEatingPattern;
+-
+-    @BeforeEach
+-    public void setup() {
+-        checkList = new CheckList();
+-        taskList = new ArrayList<CheckInTask>();
+-        normalizedEatingPattern = new CheckInTask();
+-        normalizedEatingPattern.setDescription("Maintaining a normalized eating pattern");
+-        taskList.add(normalizedEatingPattern);
+-        checkList.setTaskList(taskList);
+-    }
+-
+-    @Test
+-    public void testGetTaskList() {
+-        assertEquals(taskList, checkList.getTaskList());
+-    }
+ }
+Index: src/test/model/MealLogTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\n// Tests the methods in the MealLog Class\npublic class MealLogTests {\n    private MealLog mealLog;\n    private MealLog emptyLog;\n    private MealEntry entry1;\n    private MealEntry entry2;\n\n    @BeforeEach\n    public void setup() {\n        mealLog = new MealLog();\n        emptyLog = new MealLog();\n        setupMealEntry1();\n        setupMealEntry2();\n\n        mealLog.addEntry(entry1);\n        mealLog.addEntry(entry2);\n    }\n\n    public void setupMealEntry1() {\n        entry1 = new MealEntry();\n        entry1.setFoods(\"Banana\");\n        entry1.setLocation(\"Home\");\n        entry1.setMealType(\"Morning Snack\");\n        entry1.setStressLevel(\"Low\");\n        entry1.setWorry(\"Worried about xyz\");\n        entry1.setWorryResponse(\"I should remember xyz\");\n        entry1.setOtherThoughts(\"Thinking about xyz\");\n    }\n\n    public void setupMealEntry2() {\n        entry2 = new MealEntry();\n        entry2.setFoods(\"Cookies\");\n        entry2.setLocation(\"School\");\n        entry2.setMealType(\"Afternoon snack\");\n        entry2.setStressLevel(\"High\");\n    }\n\n    @Test\n    public void testAddEntryEmpty() {\n        assertEquals(0, emptyLog.getMealEntries().size());\n        emptyLog.addEntry(entry1);\n        assertEquals(1, emptyLog.getMealEntries().size());\n        assertEquals(entry1, emptyLog.getMealEntries().get(0));\n    }\n\n    @Test\n    public void testAddEntryMultipleEntries() {\n        assertEquals(0, emptyLog.getMealEntries().size());\n        emptyLog.addEntry(entry1);\n        emptyLog.addEntry(entry2);\n        assertEquals(2, emptyLog.getMealEntries().size());\n        assertEquals(entry1, emptyLog.getMealEntries().get(0));\n        assertEquals(entry2, emptyLog.getMealEntries().get(1));\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/MealLogTests.java b/src/test/model/MealLogTests.java
+--- a/src/test/model/MealLogTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/MealLogTests.java	(date 1708054757818)
+@@ -59,4 +59,5 @@
+         assertEquals(entry1, emptyLog.getMealEntries().get(0));
+         assertEquals(entry2, emptyLog.getMealEntries().get(1));
+     }
++
+ }
+Index: src/test/model/MealEntryTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\n// Tests the methods in the MealEntry Class\npublic class MealEntryTests {\n\n    private MealEntry entry;\n\n    @BeforeEach\n    public void setup() {\n        entry = new MealEntry();\n        entry.setFoods(\"Oranges, Bananas\");\n        entry.setMealType(\"Morning Snack\");\n        entry.setLocation(\"Bedroom\");\n        entry.setStressLevel(\"Low\");\n        entry.setWorryResponse(\"Don't worry\");\n        entry.setOtherThoughts(\"thoughts thoughts\");\n    }\n\n    @Test\n    public void testGetFoods() {\n        assertEquals(\"Oranges, Bananas\", entry.getFoods());\n    }\n\n    @Test\n    public void testGetMealType() {\n        assertEquals(\"Morning Snack\", entry.getMealType());\n    }\n\n    @Test\n    public void testGetLocation() {\n        assertEquals(\"Bedroom\", entry.getLocation());\n    }\n\n    @Test\n    public void testGetStressLevel() {\n        assertEquals(\"Low\", entry.getStressLevel());\n    }\n\n    @Test\n    public void testGetWorryResponse() {\n        assertEquals(\"Don't worry\", entry.getWorryResponse());\n    }\n\n    @Test\n    public void testGetOtherThoughts() {\n        assertEquals(\"thoughts thoughts\", entry.getOtherThoughts());\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/MealEntryTests.java b/src/test/model/MealEntryTests.java
+--- a/src/test/model/MealEntryTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/MealEntryTests.java	(date 1708054757817)
+@@ -1,53 +1,5 @@
+ package model;
+ 
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-
+-import static org.junit.jupiter.api.Assertions.assertEquals;
+-
+ // Tests the methods in the MealEntry Class
+ public class MealEntryTests {
+-
+-    private MealEntry entry;
+-
+-    @BeforeEach
+-    public void setup() {
+-        entry = new MealEntry();
+-        entry.setFoods("Oranges, Bananas");
+-        entry.setMealType("Morning Snack");
+-        entry.setLocation("Bedroom");
+-        entry.setStressLevel("Low");
+-        entry.setWorryResponse("Don't worry");
+-        entry.setOtherThoughts("thoughts thoughts");
+-    }
+-
+-    @Test
+-    public void testGetFoods() {
+-        assertEquals("Oranges, Bananas", entry.getFoods());
+-    }
+-
+-    @Test
+-    public void testGetMealType() {
+-        assertEquals("Morning Snack", entry.getMealType());
+-    }
+-
+-    @Test
+-    public void testGetLocation() {
+-        assertEquals("Bedroom", entry.getLocation());
+-    }
+-
+-    @Test
+-    public void testGetStressLevel() {
+-        assertEquals("Low", entry.getStressLevel());
+-    }
+-
+-    @Test
+-    public void testGetWorryResponse() {
+-        assertEquals("Don't worry", entry.getWorryResponse());
+-    }
+-
+-    @Test
+-    public void testGetOtherThoughts() {
+-        assertEquals("thoughts thoughts", entry.getOtherThoughts());
+-    }
+ }
+Index: src/test/model/WeightLogTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.*;\n\n// Tests the methods in the WeightLog Class\npublic class WeightLogTests {\n    private WeightLog weightLog;\n    private WeightLog noRangeLog;\n    private WeightEntry minEntry;\n    private WeightEntry maxEntry;\n    private WeightEntry overWeightEntry;\n    private WeightEntry underWeightEntry;\n    private WeightEntry healthyEntry;\n\n    @BeforeEach\n    public void setup() {\n        weightLog = new WeightLog();\n        noRangeLog = new WeightLog();\n        weightLog.setHealthyRange(150, 165);\n        minEntry = new WeightEntry(150, \"lbs\");\n        maxEntry = new WeightEntry(165, \"lbs\");\n        overWeightEntry = new WeightEntry(166, \"lbs\");\n        underWeightEntry = new WeightEntry(149, \"lbs\");\n        healthyEntry = new WeightEntry(155, \"lbs\");\n\n    }\n\n    @Test\n    public void testAddEntryOneEntry() {\n        assertEquals(0, weightLog.getWeightEntries().size());\n        weightLog.addEntry(minEntry);\n        assertEquals(1, weightLog.getWeightEntries().size());\n        assertEquals(minEntry, weightLog.getWeightEntries().get(0));\n    }\n\n    @Test\n    public void testAddEntryMultipleEntries() {\n        assertEquals(0, weightLog.getWeightEntries().size());\n        weightLog.addEntry(minEntry);\n        weightLog.addEntry(overWeightEntry);\n        assertEquals(2, weightLog.getWeightEntries().size());\n        assertEquals(minEntry, weightLog.getWeightEntries().get(0));\n        assertEquals(overWeightEntry, weightLog.getWeightEntries().get(1));\n    }\n\n    //test isHealthy\n    @Test\n    public void testIsHealthyMinWeight() {\n        assertTrue(weightLog.isHealthy(minEntry));\n    }\n\n    @Test\n    public void testIsHealthyMaxWeight() {\n        assertTrue(weightLog.isHealthy(maxEntry));\n    }\n\n    @Test\n    public void testIsHealthyHealthyWeight() {\n        assertTrue(weightLog.isHealthy(healthyEntry));\n    }\n\n    @Test\n    public void testIsHealthyUnhealthyWeights() {\n        assertFalse(weightLog.isHealthy(overWeightEntry));\n        assertFalse(weightLog.isHealthy(underWeightEntry));\n    }\n\n    //test RangeExists\n    @Test\n    public void testRangeExistsFalse() {\n        assertFalse(noRangeLog.rangeExists());\n    }\n\n    @Test\n    public void testRangeExistsTrue() {\n        assertTrue(weightLog.rangeExists());\n    }\n\n    @Test\n    public void testSetHealthyRangeDifferentValues() {\n        assertFalse(noRangeLog.rangeExists());\n        noRangeLog.setHealthyRange(100, 120);\n        assertTrue(weightLog.rangeExists());\n        assertEquals(100, noRangeLog.getMinHealthyWeight());\n        assertEquals(120, noRangeLog.getMaxHealthyWeight());\n    }\n\n    @Test\n    public void testSetHealthyRangeSameValue() {\n        assertFalse(noRangeLog.rangeExists());\n        noRangeLog.setHealthyRange(100, 100);\n        assertTrue(weightLog.rangeExists());\n        assertEquals(100, noRangeLog.getMinHealthyWeight());\n        assertEquals(100, noRangeLog.getMaxHealthyWeight());\n    }\n\n    @Test\n    public void testSetHealthyRangeRangeExists() {\n        assertTrue(weightLog.rangeExists());\n        weightLog.setHealthyRange(190, 200);\n        assertTrue(weightLog.rangeExists());\n        assertEquals(weightLog.getMinHealthyWeight(), 190);\n        assertEquals(weightLog.getMaxHealthyWeight(), 200);\n    }\n\n    @Test\n    public void testGetWeightSystem() {\n        assertEquals(\"lbs\", weightLog.getWeightSystem());\n    }\n\n    @Test\n    public void testSetWeightSystem() {\n        weightLog.setWeightSystem(\"kg\");\n        assertEquals(\"kg\", weightLog.getWeightSystem());\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/WeightLogTests.java b/src/test/model/WeightLogTests.java
+--- a/src/test/model/WeightLogTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/WeightLogTests.java	(date 1708054757819)
+@@ -106,15 +106,6 @@
+         assertEquals(weightLog.getMaxHealthyWeight(), 200);
+     }
+ 
+-    @Test
+-    public void testGetWeightSystem() {
+-        assertEquals("lbs", weightLog.getWeightSystem());
+-    }
+-
+-    @Test
+-    public void testSetWeightSystem() {
+-        weightLog.setWeightSystem("kg");
+-        assertEquals("kg", weightLog.getWeightSystem());
+-    }
++    //testConversions !!!
+ }
+ 
+Index: src/main/model/CheckList.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport java.util.ArrayList;\n\n// Represents a checklist containing check-in tasks\npublic class CheckList {\n\n    private ArrayList<CheckInTask> taskList;\n    private CheckInTask normalizedEatingPattern;\n    private CheckInTask foodVariety;\n    private CheckInTask noOverExercising;\n    private CheckInTask noBinging;\n    private CheckInTask noPurging;\n    private CheckInTask noBodyChecking;\n    private CheckInTask noUntimelyWeighIns;\n    private CheckInTask maintainWeight;\n    private CheckInTask noShapeAvoidance;\n    private CheckInTask noUnhelpfulShapeContributions;\n\n    public CheckList() {\n        taskList = new ArrayList<CheckInTask>();\n        setupTasks();\n        addTasks();\n    }\n\n    public void setupTasks() {\n        normalizedEatingPattern = new CheckInTask();\n        foodVariety = new CheckInTask();\n        noOverExercising = new CheckInTask();\n        noBinging = new CheckInTask();\n        noPurging = new CheckInTask();\n        noBodyChecking = new CheckInTask();\n        noUntimelyWeighIns = new CheckInTask();\n        maintainWeight = new CheckInTask();\n        noShapeAvoidance = new CheckInTask();\n        noUnhelpfulShapeContributions = new CheckInTask();\n\n        normalizedEatingPattern.setDescription(\"Maintaining a normalized eating pattern\");\n        foodVariety.setDescription(\"Eating a variety of foods (i.e. not excluding types of foods)\");\n        noOverExercising.setDescription(\"Interrupting overexercising\");\n        noBinging.setDescription(\"Interrupting binge eating\");\n        noPurging.setDescription(\"Interrupting purging\");\n        noBodyChecking.setDescription(\"No body checking\");\n        noUntimelyWeighIns.setDescription(\"No weighing self outside of planned times\");\n        maintainWeight.setDescription(\"Maintaining weight\");\n        noShapeAvoidance.setDescription(\"Not avoiding shape through loose clothing\");\n        noUnhelpfulShapeContributions.setDescription(\"Not attributing uncomfortable emotions to body type\");\n    }\n\n    // EFFECTS: adds tasks to taskList\n    public void addTasks() {\n        taskList.add(normalizedEatingPattern);\n        taskList.add(foodVariety);\n        taskList.add(noOverExercising);\n        taskList.add(noBinging);\n        taskList.add(noPurging);\n        taskList.add(noBodyChecking);\n        taskList.add(noUntimelyWeighIns);\n        taskList.add(maintainWeight);\n        taskList.add(noShapeAvoidance);\n        taskList.add(noUnhelpfulShapeContributions);\n    }\n\n    public void setTaskList(ArrayList<CheckInTask> taskList) {\n        this.taskList = taskList;\n    }\n\n    public ArrayList<CheckInTask> getTaskList() {\n        return taskList;\n    }\n\n    public void setNoUnhelpfulShapeContributions(boolean b) {\n        this.noUnhelpfulShapeContributions.setChecked(b);\n    }\n\n    public void setNoShapeAvoidance(boolean b) {\n        this.noShapeAvoidance.setChecked(b);\n    }\n\n    public void setMaintainWeight(boolean b) {\n        this.maintainWeight.setChecked(b);\n    }\n\n    public void setNoUntimelyWeighIns(boolean b) {\n        this.noUntimelyWeighIns.setChecked(b);\n    }\n\n    public void setNoBodyChecking(boolean b) {\n        this.noBodyChecking.setChecked(b);\n    }\n\n    public void setNoPurging(boolean b) {\n        this.noPurging.setChecked(b);\n    }\n\n    public void setNoBinging(boolean b) {\n        this.noBinging.setChecked(b);\n    }\n\n    public void setNoOverExercising(boolean b) {\n        this.noOverExercising.setChecked(b);\n    }\n\n    public void setFoodVariety(boolean b) {\n        this.foodVariety.setChecked(b);\n    }\n\n    public void setNormalizedEatingPattern(boolean b) {\n        this.normalizedEatingPattern.setChecked(b);\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/model/CheckList.java b/src/main/model/CheckList.java
+--- a/src/main/model/CheckList.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/main/model/CheckList.java	(date 1708054757815)
+@@ -61,10 +61,6 @@
+         taskList.add(noUnhelpfulShapeContributions);
+     }
+ 
+-    public void setTaskList(ArrayList<CheckInTask> taskList) {
+-        this.taskList = taskList;
+-    }
+-
+     public ArrayList<CheckInTask> getTaskList() {
+         return taskList;
+     }
+Index: src/test/model/CheckInTaskTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\n// Tests the methods in the CheckInTask Class\npublic class CheckInTaskTests {\n\n    \n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/CheckInTaskTests.java b/src/test/model/CheckInTaskTests.java
+--- a/src/test/model/CheckInTaskTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/CheckInTaskTests.java	(date 1708054757816)
+@@ -2,6 +2,4 @@
+ 
+ // Tests the methods in the CheckInTask Class
+ public class CheckInTaskTests {
+-
+-    
+ }
+Index: .idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><changelist name=\"Uncommitted_changes_before_rebase_[Changes]\" date=\"1708052620922\" recycled=\"true\" deleted=\"true\">\n  <option name=\"PATH\" value=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch\" />\n  <option name=\"DESCRIPTION\" value=\"Uncommitted changes before rebase [Changes]\" />\n</changelist>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml
+--- a/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml	(date 1708054830011)
+@@ -1,4 +1,4 @@
+-<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1708052620922" recycled="true" deleted="true">
++<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1708054758011" recycled="true" deleted="true">
+   <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
+   <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+ </changelist>
+\ No newline at end of file
+Index: src/test/model/CheckInEntryTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.*;\n\n// Tests the methods in the CheckInEntry Class\npublic class CheckInEntryTests {\n    private CheckInEntry emptyEntry;\n    private CheckInEntry entry;\n\n    @BeforeEach\n    public void setup() {\n        emptyEntry = new CheckInEntry();\n        entry = new CheckInEntry();\n        entry.createGoal1(\"This\");\n        entry.createGoal2(\"and that\");\n    }\n\n    //test CreateGoal1\n    @Test\n    public void testCreateGoal1() {\n        assertEquals(null, emptyEntry.getGoal1());\n        emptyEntry.createGoal1(\"Do this\");\n        assertEquals(\"Do this\", emptyEntry.getGoal1().getDescription());\n        assertFalse(emptyEntry.getGoal1().getChecked());\n    }\n\n    //testcreategoal2\n    @Test\n    public void testCreateGoal2() {\n        assertEquals(null, emptyEntry.getGoal2());\n        emptyEntry.createGoal2(\"Do that\");\n        assertEquals(\"Do that\", emptyEntry.getGoal2().getDescription());\n        assertFalse(emptyEntry.getGoal2().getChecked());\n    }\n\n    @Test\n    public void testCreateGoalGoalExists() {\n        emptyEntry.createGoal2(\"Do this\");\n        assertEquals(\"Do this\", emptyEntry.getGoal2().getDescription());\n        emptyEntry.createGoal2(\"Do that\");\n        assertEquals(\"Do that\", emptyEntry.getGoal2().getDescription());\n    }\n\n    @Test\n    public void testNumGoalsCompletedNoneCompleted() {\n        assertEquals(entry.numGoalsCompleted(),0);\n    }\n\n    @Test\n    public void testNumGoalsCompletedOneCompleted() {\n        entry.getGoal1().setChecked(true);\n        assertEquals(entry.numGoalsCompleted(),1);\n    }\n\n    @Test\n    public void testNumGoalsCompletedAllCompleted() {\n        entry.getGoal1().setChecked(true);\n        entry.getGoal2().setChecked(true);\n        assertEquals(entry.numGoalsCompleted(),2);\n    }\n\n    @Test\n    public void testGetThoughts() {\n        entry.setThoughts(\"Thinking...\");\n        assertEquals(\"Thinking...\", entry.getThoughts());\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/model/CheckInEntryTests.java b/src/test/model/CheckInEntryTests.java
+--- a/src/test/model/CheckInEntryTests.java	(revision bf98835894ee611767b945881e24a9bd50b842c0)
++++ b/src/test/model/CheckInEntryTests.java	(date 1708054757816)
+@@ -62,9 +62,4 @@
+         assertEquals(entry.numGoalsCompleted(),2);
+     }
+ 
+-    @Test
+-    public void testGetThoughts() {
+-        entry.setThoughts("Thinking...");
+-        assertEquals("Thinking...", entry.getThoughts());
+-    }
+ }

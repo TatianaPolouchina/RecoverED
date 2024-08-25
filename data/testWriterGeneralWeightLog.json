@@ -1,0 +1,26 @@
+{"weightLog": {
+    "weightEntries": [
+        {
+            "lbs": 149,
+            "kg": 67.57369614512471,
+            "stone": 10.642857142857142
+        },
+        {
+            "lbs": 155,
+            "kg": 70.29478458049887,
+            "stone": 11.071428571428571
+        }
+    ],
+    "weightSystem": "lbs",
+    "setRange": true,
+    "maxHealthyWeight": {
+        "lbs": 165,
+        "kg": 74.82993197278911,
+        "stone": 11.785714285714286
+    },
+    "minHealthyWeight": {
+        "lbs": 150,
+        "kg": 68.02721088435374,
+        "stone": 10.714285714285714
+    }
+}}

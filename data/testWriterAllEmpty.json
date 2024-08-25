@@ -1,0 +1,19 @@
+{
+    "checkInLog": {"checkInEntries": []},
+    "mealLog": {"mealEntries": []},
+    "weightLog": {
+        "weightEntries": [],
+        "weightSystem": "lbs",
+        "setRange": false,
+        "maxHealthyWeight": {
+            "lbs": 0,
+            "kg": 0,
+            "stone": 0
+        },
+        "minHealthyWeight": {
+            "lbs": 0,
+            "kg": 0,
+            "stone": 0
+        }
+    }
+}
